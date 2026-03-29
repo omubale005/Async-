@@ -57,6 +57,17 @@ export function Dashboard() {
     }
   };
 
+  const handleUpdateStatus = async (id: string, status: string) => {
+    try {
+      await apiService.updateAppointment(id, { status });
+      setAppointments(appointments.map(apt => 
+        (apt._id === id || apt.id === id) ? { ...apt, status: status as "scheduled" | "completed" | "cancelled" } as Appointment : apt
+      ));
+    } catch (err) {
+      console.error("Failed to update appointment status", err);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-[80vh]">
@@ -232,9 +243,20 @@ export function Dashboard() {
                         </div>
                       </div>
                     </div>
-                    <Badge className={getStatusColor(appointment.status)} variant="secondary">
-                      {appointment.status}
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      <Badge className={getStatusColor(appointment.status)} variant="secondary">
+                        {appointment.status}
+                      </Badge>
+                      {(role === "admin" || role === "dentist" || role === "receptionist") && appointment.status !== "completed" && appointment.status !== "cancelled" && (
+                        <Button
+                          size="sm"
+                          className="bg-green-600 hover:bg-green-700 text-white h-7 px-3 text-xs"
+                          onClick={() => handleUpdateStatus(appointment._id || appointment.id as string, "completed")}
+                        >
+                          Complete
+                        </Button>
+                      )}
+                    </div>
                   </motion.div>
                 ))
               )}

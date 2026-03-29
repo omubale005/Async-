@@ -515,7 +515,7 @@ export function Appointments() {
                                 </div>
                                 <div className="text-sm text-gray-600 mt-0.5 flex items-center gap-3">
                                   <span className="flex items-center gap-1">
-                                    <Badge variant="ghost" className="p-0 h-auto text-blue-600 font-bold">{apt.treatment}</Badge>
+                                    <Badge variant="outline" className="p-0 h-auto text-blue-600 font-bold border-none">{apt.treatment}</Badge>
                                   </span>
                                   <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
                                   <span className="text-gray-400 text-xs">{(apt as any).patients?.phone || "No phone"}</span>
@@ -523,7 +523,7 @@ export function Appointments() {
                               </div>
                               
                               <div className="flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-opacity">
-                                {(role === "admin" || role === "dentist") && apt.status !== "completed" && (
+                                {(role === "admin" || role === "dentist" || role === "receptionist") && apt.status !== "completed" && (
                                   <Button
                                     size="sm"
                                     className="h-8 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold"
