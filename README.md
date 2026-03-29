@@ -1,7 +1,5 @@
 
-  # Dental Clinic Management Dashboard
 
-  This is a code bundle for Dental Clinic Management Dashboard. The original project is available at https://www.figma.com/design/4FfGVAFpeHk9dgHOs8BtM6/Dental-Clinic-Management-Dashboard.
 
   ## Running the code
 
