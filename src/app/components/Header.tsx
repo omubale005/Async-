@@ -32,17 +32,8 @@ export function Header() {
 
   return (
     <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
-      {/* Search */}
-      <div className="flex-1 max-w-xl">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <Input
-            type="search"
-            placeholder="Search patients, appointments..."
-            className="pl-10 bg-gray-50 border-gray-200"
-          />
-        </div>
-      </div>
+      {/* Search Space */}
+      <div className="flex-1"></div>
 
       {/* Right Section */}
       <div className="flex items-center gap-4">

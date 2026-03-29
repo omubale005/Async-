@@ -9,7 +9,7 @@ export function Layout() {
       <div className="flex-1 ml-16 flex flex-col overflow-hidden">
         <Header />
         <main className="flex-1 overflow-y-auto">
-          <div className="p-6">
+          <div className="px-6 pb-6 pt-2">
             <Outlet />
           </div>
         </main>
